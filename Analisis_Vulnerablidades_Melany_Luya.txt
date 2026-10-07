@@ -1,0 +1,77 @@
+Microsoft Windows [Versión 10.0.26200.9550]
+(c) Microsoft Corporation. Todos los derechos reservados.
+
+C:\Users\Melany Luya>nmap --version
+Nmap version 7.991 ( https://nmap.org )
+Platform: i686-pc-windows-windows
+Compiled with: nmap-liblua-5.4.8 openssl-3.0.21 nmap-libssh2-1.11.1_NMAP1 nmap-libz-1.3.2 nmap-libpcre2-10.47 Npcap-1.88 nmap-libdnet-1.18.0 ipv6
+Compiled without:
+Available nsock engines: iocp poll select
+
+C:\Users\Melany Luya>nmap -sV -sC -p 8081 142.93.12.42
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-06 23:13 -0400
+Nmap scan report for 142.93.12.42
+Host is up (0.033s latency).
+
+PORT     STATE SERVICE VERSION
+8081/tcp open  http    nginx 1.31.6
+|_http-server-header: nginx/1.31.6
+|_http-title: Banco Refasssil | Banca Digital Moderna
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 13.18 seconds
+
+C:\Users\Melany Luya>nmap -p 445 --script smb-vuln-ms17-010 192.168.10.25
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-06 23:35 -0400
+Nmap scan report for 192.168.10.25
+Host is up (0.0030s latency).
+
+PORT    STATE    SERVICE
+445/tcp filtered microsoft-ds
+
+Nmap done: 1 IP address (1 host up) scanned in 1.02 seconds
+
+C:\Users\Melany Luya>nmap -p 21 -sV --script ftp-anon 192.168.10.25
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-06 23:36 -0400
+Nmap scan report for 192.168.10.25
+Host is up (0.0020s latency).
+
+PORT   STATE    SERVICE VERSION
+21/tcp filtered ftp
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 1.11 seconds
+
+C:\Users\Melany Luya>nmap -p 8080 -sV --script http-methods 192.168.10.25
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-06 23:36 -0400
+Nmap scan report for 192.168.10.25
+Host is up (0.0030s latency).
+
+PORT     STATE    SERVICE    VERSION
+8080/tcp filtered http-proxy
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 1.15 seconds
+
+C:\Users\Melany Luya>nmap -p 3306 --script mysql-empty-password,mysql-info 192.168.10.25
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-06 23:40 -0400
+Nmap scan report for 192.168.10.25
+Host is up (0.0020s latency).
+
+PORT     STATE    SERVICE
+3306/tcp filtered mysql
+
+Nmap done: 1 IP address (1 host up) scanned in 1.03 seconds
+
+C:\Users\Melany Luya>nmap -p 5432 -sV 192.168.10.25
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-06 23:42 -0400
+Nmap scan report for 192.168.10.25
+Host is up (0.0030s latency).
+
+PORT     STATE    SERVICE    VERSION
+5432/tcp filtered postgresql
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 1.14 seconds
+
+C:\Users\Melany Luya>
